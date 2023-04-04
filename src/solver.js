@@ -1,4 +1,4 @@
-import {itocol} from "./utils"
+import { itocol } from "./utils";
 
 class Graph {
   constructor() {
@@ -37,9 +37,7 @@ class Graph {
     console.log("==================================");
   }
 
-  getVisGraph(){
-
-  }
+  getVisGraph() {}
 }
 
 class FirstFitSolver {
@@ -73,10 +71,10 @@ class CBIPSolver {
 
   constructor(g) {
     this.g = g;
-    this.visGraph = {nodes:[], edges:[]};
+    this.visGraph = { nodes: [], edges: [] };
     this.noOfEdges = [];
 
-    this.visGraphHistory = {nodes:[], edges:[]};
+    this.visGraphHistory = { nodes: [], edges: [] };
     this.noOfEdgesHistory = [];
   }
 
@@ -129,35 +127,36 @@ class CBIPSolver {
     }
     this.g.coloring.set(vertex, color);
 
-    this.visGraph.nodes.push(
-        {
-          id: vertex,
-          label: `${vertex}`,
-          color: {
-            background: itocol[color], border: "black",
-            hover: { background: itocol[color], border: "black" },
-            highlight: { background: itocol[color], border: "black" },
-          },
-    })
+    this.visGraph.nodes.push({
+      id: vertex,
+      label: `${vertex}`,
+      color: {
+        background: itocol[color],
+        border: "black",
+        hover: { background: itocol[color], border: "black" },
+        highlight: { background: itocol[color], border: "black" },
+      },
+    });
 
     for (const v of neighbours) {
-      this.visGraph.edges.push({from:vertex, to:v})
+      this.visGraph.edges.push({ from: vertex, to: v });
     }
 
-    this.noOfEdges.push(neighbours.length)
+    this.noOfEdges.push(neighbours.length);
 
     console.debug(vertex, color);
     return this.g;
   }
 
-  pop(){
+  pop() {
     this.visGraphHistory.nodes.push(this.visGraph.nodes.pop());
     let x = this.noOfEdges.pop();
     this.noOfEdgesHistory.push(x);
 
-    for(let i=0;i<x;i++){
+    for (let i = 0; i < x; i++) {
       this.visGraphHistory.edges.push(this.visGraph.edges.pop());
     }
+    return this.visGraph;
   }
 
   pushBack() {
@@ -165,9 +164,10 @@ class CBIPSolver {
     let x = this.noOfEdgesHistory.pop();
     this.noOfEdges.push(x);
 
-    for(let i=0;i<x;i++){
+    for (let i = 0; i < x; i++) {
       this.visGraph.edges.push(this.visGraphHistory.edges.pop());
     }
+    return this.visGraph;
   }
   getVisGraph() {
     return this.visGraph;
@@ -192,4 +192,5 @@ function test_case() {
   return cs;
 }
 
+// export default CBIPSolver;
 export default test_case;
