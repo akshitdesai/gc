@@ -94,17 +94,18 @@ function App() {
           style={{
             backgroundColor: "#159895",
             color: "#fff",
-            marginLeft: "20px",
+            margin: "20px",
           }}
           disabled={!tc.visGraphHistory.nodes.length}
           onClick={onNextClick}
         >
           Next
         </Button>
+        Physics
         <Switch
-          style={{ margin: "20px" }}
-          checkedChildren="Physics On"
-          unCheckedChildren="Physics Off"
+          style={{ margin:"10px" }}
+          checkedChildren="On"
+          unCheckedChildren="Off"
           defaultChecked
           onChange={(e) => {
             setPhysics(e);
