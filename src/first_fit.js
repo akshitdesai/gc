@@ -1,4 +1,4 @@
-import { itocol } from "./utils";
+import { getColor } from "./utils";
 import Graph from "./graph";
 
 class FirstFitSolver {
@@ -34,10 +34,10 @@ class FirstFitSolver {
       id: vertex,
       label: `${vertex}`,
       color: {
-        background: itocol[color],
+        background: getColor(color),
         border: "black",
-        hover: { background: itocol[color], border: "black" },
-        highlight: { background: itocol[color], border: "black" },
+        hover: { background: getColor(color), border: "black" },
+        highlight: { background: getColor(color), border: "black" },
       },
     });
 

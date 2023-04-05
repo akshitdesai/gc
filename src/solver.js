@@ -1,4 +1,4 @@
-import { itocol } from "./utils";
+import { getColor } from "./utils";
 
 class Graph {
   constructor() {
@@ -131,10 +131,10 @@ class CBIPSolver {
       id: vertex,
       label: `${vertex}`,
       color: {
-        background: itocol[color],
+        background: getColor(color),
         border: "black",
-        hover: { background: itocol[color], border: "black" },
-        highlight: { background: itocol[color], border: "black" },
+        hover: { background: getColor(color), border: "black" },
+        highlight: { background: getColor(color), border: "black" },
       },
     });
 
