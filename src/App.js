@@ -1,7 +1,6 @@
 import "./App.css";
 import Graph from "react-graph-vis";
-import test_case from "./solver.js";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Form, Select, InputNumber, Switch } from "antd";
 import generator from "./generator";
 let tc = generator(5, 2);
@@ -16,7 +15,7 @@ function App() {
   const [physics, setPhysics] = useState(true);
 
   const onFinish = () => {
-    // Implementation for genrating new graph
+    // Implementation for generating new graph
   };
 
   const onPreviousClick = () => {
