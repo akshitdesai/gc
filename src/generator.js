@@ -19,7 +19,7 @@ function add_edge(edges, u, v) {
   else edges.push([u, v]);
 }
 
-function generator(n, k, type = "cbip") {
+function generator(n, k, p, type = "cbip") {
   let groups = [];
   let edges = [];
   for (let i = 0; i < k; i++) {
@@ -39,10 +39,9 @@ function generator(n, k, type = "cbip") {
         add_edge(edges, u, v);
       }
       for (let k = 0; k < groups.length; k++) {
-        if (groups[k].includes(u) || getRandomInt(2) === 1) continue;
+        if (groups[k].includes(u)) continue;
         for (let v of groups[k]) {
-          if (getRandomInt(2) === 1) continue;
-          add_edge(edges, u, v);
+          if (Math.random() <= p) add_edge(edges, u, v);
         }
       }
     }

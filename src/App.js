@@ -13,6 +13,7 @@ function App() {
   const [algo, setAlgo] = useState("cbip");
   const [cr, setCr] = useState((tc.maxColor * 1.0) / k);
   const [physics, setPhysics] = useState(true);
+  const [p, setP] = useState(0.5);
 
   const onFinish = () => {
     // Implementation for generating new graph
@@ -102,7 +103,7 @@ function App() {
         </Button>
         Physics
         <Switch
-          style={{ margin:"10px" }}
+          style={{ margin: "10px" }}
           checkedChildren="On"
           unCheckedChildren="Off"
           defaultChecked
@@ -157,6 +158,21 @@ function App() {
               <Option value="cbip">CBIP</Option>
             </Select>
           </Form.Item>
+          <Form.Item
+            label="Probability of adding edge (p)"
+            name="p"
+            rules={[{ required: true, message: "Please enter p." }]}
+          >
+            <InputNumber
+              min={0.01}
+              max={1}
+              step={0.01}
+              defaultValue={0.5}
+              onChange={(e) => {
+                setP(e);
+              }}
+            />
+          </Form.Item>
           <Form.Item>
             <Button
               type="primary"
@@ -173,7 +189,7 @@ function App() {
                   alert("K can not be greater than N.");
                   return;
                 }
-                tc = generator(n, k, algo);
+                tc = generator(n, k, p, algo);
                 setGraph(JSON.parse(JSON.stringify(tc.visGraph)));
                 setCr((tc.maxColor * 1.0) / k);
               }}
