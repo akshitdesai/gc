@@ -47,7 +47,6 @@ class CBIPSolver {
     const partition = this.get_partition(vertex);
     let color = 1;
     for (const p of partition) {
-      console.error(`Partition ${[...p]}`);
       if (p.has(vertex)) {
         continue;
       }
