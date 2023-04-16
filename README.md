@@ -1,10 +1,35 @@
-# Getting Started with Create React App
+### Analysis of First Fit and CBIP Algorithms on Online Graph Coloring - COMP-6651 Project Winter 2023
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*Interactive GUI for this project can be found [here](https://akshitdesai.github.io/gc).* 
 
-## Available Scripts
+# Contents
 
-In the project directory, you can run:
+1. [File Structure](#File-Structure)
+2. [How to Run](#How-to-Run)
+   - [Analysis](#Analysis) 
+   - [GUI](#Animal-With-Attributes-2)
+
+
+# File Structure
+
+We implmented the graph generation, first fit and CBIP in bothe `Jasvscript` and `C++`. One for the GUI and one for the analysis purposes. You can find the desired find through the below table:
+
+|              | Graph Geneartion | First Fit | CBIP     | Benchmarking |
+|--------------|------------------|-----------|----------|--------------|
+| `C++`        | [link](https://github.com/akshitdesai/gc/blob/main/cpp/analysis.cpp#L176)         | [link](https://github.com/akshitdesai/gc/blob/main/cpp/analysis.cpp#L77)  | [link](https://github.com/akshitdesai/gc/blob/main/cpp/analysis.cpp#L107) | [link](https://github.com/akshitdesai/gc/blob/main/cpp/analysis.cpp#L346)     |
+| `JavaScript` | [link](https://github.com/akshitdesai/gc/blob/main/src/generator.js#L22)         | [link](https://github.com/akshitdesai/gc/blob/main/src/first_fit.js)  | [link](https://github.com/akshitdesai/gc/blob/main/src/cbip.js) | -    |
+
+# How to Run
+
+The project can be divided into mainly two parts. One being GUI and second being `C++` program to perform analysis. Instructions to run both are below:
+
+## Analysis
+
+In the [cpp](https://github.com/akshitdesai/gc/tree/main/cpp) directory you can find two programs: [`main.cpp`](https://github.com/akshitdesai/gc/tree/main/cpp) and [`analysis.cpp`](https://github.com/akshitdesai/gc/blob/main/cpp/analysis.cpp). `main.cpp` implmentes the first fit and CBIP algorithm and runs it on a sample given in the project defination document. `analysis.cpp` contains random graph generation in addition to first fit and CBIP algorithm. Running `analysis.cpp` will create `csv` files in `csvs/` directory containing average competitive ratio over `100` runs for a random k-colrable graph with probabilty `p` of adding edges. To run any of the file you will need `g++` installed. **Please note that `stdc++17` is required to compile and run `analysis.cpp`**.
+
+## GUI
+
+It is a react app and it can be run like anyother react project. In the project directory, you can run:
 
 ### `npm start`
 
@@ -29,42 +54,3 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
